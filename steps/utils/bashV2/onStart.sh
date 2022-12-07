@@ -1,4 +1,4 @@
-
+set -x
 configureCustomStep() {
     local cli_plugin=$(find_step_configuration_value "cliPlugin")
     local intgs=$(find_step_configuration_value "integrations")
@@ -33,19 +33,19 @@ configureCustomStep() {
 
     if [[ -n $cli_plugin ]]; then
         jf plugin install $cli_plugin
-
+        echo "[INFO] Installed $cli_plugin CLI plugin."
         if [[ $? -eq 1 ]]; then
             echo "[ERROR] Could not install or find the $cli_plugin CLI plugin."
             exit 1
         fi 
 
         # removed the plugin version if specified
-        jf $(echo $cli_plugin | cut -d"@" -f1) -v 
-
-        if [[ $? -eq 1 ]]; then
-            echo "[ERROR] Could not execute the $cli_plugin CLI plugin."
-            exit 1
-        fi 
+        #jf $(echo $cli_plugin | cut -d"@" -f1) -v 
+      
+        #if [[ $? -eq 1 ]]; then
+        #    echo "[ERROR] Could not execute the $cli_plugin CLI plugin."
+        #    exit 1
+        #fi 
     fi
 
     return 0
