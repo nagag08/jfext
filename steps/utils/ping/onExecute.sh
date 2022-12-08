@@ -1,4 +1,4 @@
-
+set -x
 pingJPDs() {
     local success=0
     local ping_ok=0
