@@ -1,4 +1,4 @@
-set -x
+
 configureCustomStep() {
     local cli_plugin=$(find_step_configuration_value "cliPlugin")
     local intgs=$(find_step_configuration_value "integrations")
