@@ -32,7 +32,6 @@ configureCustomStep() {
     done
 
     if [[ -n $cli_plugin ]]; then
-        env
         jf plugin install $cli_plugin
         echo "[INFO] Installed $cli_plugin CLI plugin."
         if [[ $? -eq 1 ]]; then
