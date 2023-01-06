@@ -30,7 +30,9 @@ configureCustomStep() {
         fi 
     done
 
-    if [[ -n $cli_plugin ]]; then
+    #if [[ -n $cli_plugin ]]; then
+        export JFROG_CLI_LOG_LEVEL=DEBUG
+        echo "$JFROG_CLI_LOG_LEVEL - $JFROG_CLI_PLUGINS_SERVER - $JFROG_CLI_PLUGINS_REPO"
         jf plugin install $cli_plugin
         echo "[INFO] Installed $cli_plugin CLI plugin."
         if [[ $? -eq 1 ]]; then
@@ -45,7 +47,7 @@ configureCustomStep() {
         #    echo "[ERROR] Could not execute the $cli_plugin CLI plugin."
         #    exit 1
         #fi 
-    fi
+    #fi
 
     return 0
 }
